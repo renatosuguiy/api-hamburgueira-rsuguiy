@@ -84,8 +84,27 @@ Caso dê tudo certo, a resposta será assim:
   }
 ]
 ```
+Para verificar qual usuário possui como amigo, usar o endpoint abaixo:
+`GET /friends/{id}?_expand=user`
 
-## Rotas que não precisam de autenticação
+Caso dê tudo certo, a resposta será assim:
+```JSON
+{
+  "name": "Gato",
+  "age": 10,
+  "userId": 2,
+  "id": 1,
+  "user": {
+    "email": "renatosuguiy@gmail.com",
+    "password": "$2a$10$O4Qkk4NupjmUfiZ1nXbFReygrLUq4zyskvCruHDFpYTzN0IdLcc76",
+    "name": "Renato",
+    "age": 31,
+    "id": 2
+  }
+}
+```
+
+## Rotas que precisam de autenticação
 
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
 
@@ -118,6 +137,8 @@ Caso dê tudo certo, a resposta será assim:
 
 <h3 align='center'> Adicionar amigo </h3>
 
+O userId é o id do usuário ao qual se deseja adicionar o amigo. 
+
 `POST /friends - FORMATO DA REQUISIÇÃO`
 
 ```json
@@ -127,7 +148,6 @@ Caso dê tudo certo, a resposta será assim:
   "userId": 2
 }
 ```
-
 Caso dê tudo certo, a resposta será assim:
 
 `POST /friends - FORMATO DA RESPOSTA - STATUS 201`
@@ -138,6 +158,30 @@ Caso dê tudo certo, a resposta será assim:
   "age": 10,
   "userId": 2,
   "id": 4
+}
+```
+Para ver os amigos de um usuário, user o endpoint abaixo:
+
+`GET /users/{userId}?_embed=friends - FORMATO DA RESPOSTA - STATUS 200`
+
+Caso dê tudo certo, a resposta será assim:
+
+```json
+
+{
+  "email": "renatosuguiy@gmail.com",
+  "password": "$2a$10$O4Qkk4NupjmUfiZ1nXbFReygrLUq4zyskvCruHDFpYTzN0IdLcc76",
+  "name": "Renato",
+  "age": 31,
+  "id": 2,
+  "friends": [
+    {
+      "name": "Gato",
+      "age": 10,
+      "userId": 2,
+      "id": 1
+    }
+  ]
 }
 ```
 
