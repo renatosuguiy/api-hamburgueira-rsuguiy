@@ -84,7 +84,7 @@ Caso dê tudo certo, a resposta será assim:
   }
 ]
 ```
-Para verificar qual usuário possui como amigo, usar o endpoint abaixo:
+Para verificar qual usuário possui como amigo, usar o endpoint:
 `GET /friends/{id}?_expand=user`
 
 Caso dê tudo certo, a resposta será assim:
@@ -160,7 +160,7 @@ Caso dê tudo certo, a resposta será assim:
   "id": 4
 }
 ```
-Para ver os amigos de um usuário, user o endpoint abaixo:
+Para ver os amigos de um usuário, user o endpoint:
 
 `GET /users/{userId}?_embed=friends - FORMATO DA RESPOSTA - STATUS 200`
 
