@@ -1,21 +1,77 @@
 {
   "users": [
     {
-      "email": "renato@gmail.com",
-      "password": "$2a$10$w9Ca39VAUMF73RGXaMBOze2qUk53avUfKj3sR7GvEWHlQZDdfVfZG",
+      "email": "renato@email.com",
+      "password": "$2a$10$lEjy1QFS9PvTVbIpA0XtBuPIkrA7nZv8tSjMEirP5m6Ld7mtIQOpC",
       "name": "Renato",
-      "age": 31,
+      "confirmPassword": "123456",
       "id": 1
-    }
-  ],
-  "groups": [
+    },
     {
-      "type": "Gato",
-      "name": "Batata",
-      "description": "testes",
-      "userId": 1,
-      "id": 1
+      "email": "renatosuguiy@gmail.com",
+      "password": "$2a$10$xOt1taGsSYf9jydVtu0ofe5ivSfm0ARgV85HtluYgIb4xuTklj/Jq",
+      "name": "Renato Tateiwa Suguiy",
+      "confirmPassword": "123456",
+      "id": 2
     }
   ],
-  "friends": []
+  "products": [
+    {
+      "id": 1,
+      "productName": "Hamburguer",
+      "type": "Sanduíche",
+      "price": 14,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 2,
+      "productName": "X-Burguer",
+      "type": "Sanduíche",
+      "price": 16,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 3,
+      "productName": "Big Kenzie",
+      "type": "Sanduíche",
+      "price": 18,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 4,
+      "productName": "Combo Kenzie",
+      "type": "Combos",
+      "price": 26,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 5,
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 6,
+      "productName": "Coca Cola",
+      "type": "Bebidas",
+      "price": 7,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 7,
+      "productName": "McShake Ovomaltine",
+      "type": "Sobremesas",
+      "price": 10,
+      "image": "bigBob.png"
+    },
+    {
+      "id": 8,
+      "productName": "McShake Ovomaltine",
+      "type": "Sobremesas",
+      "price": 10,
+      "image": "bigBob.png"
+    }
+  ],
+  "order": []
 }
