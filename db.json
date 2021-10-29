@@ -13,6 +13,13 @@
       "name": "Renato Tateiwa Suguiy",
       "confirmPassword": "123456",
       "id": 2
+    },
+    {
+      "email": "teste@teste.com",
+      "password": "$2a$10$dB55wzs8uVqEzql/Gb0T8.D0IX6QxXFOyw3K6zyfHkoFQXotfUGka",
+      "name": "Renato Tateiwa Suguiy",
+      "confirmPassword": "123456",
+      "id": 3
     }
   ],
   "products": [
@@ -21,57 +28,113 @@
       "productName": "Hamburguer",
       "type": "Sanduíche",
       "price": 14,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 2,
       "productName": "X-Burguer",
       "type": "Sanduíche",
       "price": 16,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 3,
       "productName": "Big Kenzie",
       "type": "Sanduíche",
       "price": 18,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 4,
       "productName": "Combo Kenzie",
       "type": "Combos",
       "price": 26,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 5,
       "productName": "Fanta Guaraná",
       "type": "Bebidas",
       "price": 5,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 6,
       "productName": "Coca Cola",
       "type": "Bebidas",
       "price": 7,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 7,
       "productName": "McShake Ovomaltine",
       "type": "Sobremesas",
       "price": 10,
-      "image": "bigBob.png"
+      "image": "bigBob"
     },
     {
       "id": 8,
       "productName": "McShake Ovomaltine",
       "type": "Sobremesas",
       "price": 10,
-      "image": "bigBob.png"
+      "image": "bigBob"
     }
   ],
-  "order": []
+  "cart": [
+    {
+      "id": 5,
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob"
+    },
+    {
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "productName": "Fanta Guaraná",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "productName": "Fanta",
+      "type": "Bebidas",
+      "price": 5,
+      "image": "bigBob",
+      "userId": 1,
+      "id": 11
+    }
+  ]
 }
