@@ -150,7 +150,9 @@ Caso dê tudo certo, a resposta será assim:
 
 <h3 align='center'> Ver pedidos </h3>
 
-`GET /order - FORMATO DA REQUISIÇÃO`
+`GET /order - FORMATO DA RESPOSTA - STATUS 200`
+
+Caso dê tudo certo, a resposta será assim:
 
 ```json
 [{
