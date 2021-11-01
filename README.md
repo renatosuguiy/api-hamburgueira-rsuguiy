@@ -4,7 +4,7 @@
 
 ## Endpoints
 
-A url base da API é https://reactatividade-s5-renatosuguiy.herokuapp.com/
+A url base da API é https://api-hamburgueria-rsuguiy.herokuapp.com/
 
 ## Rotas que não precisam de autenticação
 
@@ -14,10 +14,9 @@ A url base da API é https://reactatividade-s5-renatosuguiy.herokuapp.com/
 
 ```json
 {
+  "name": "Renato",
   "email": "renatosuguiy@gmail.com",
   "password": "123456",
-  "name": "Renato",
-  "age": 31
 }
 ```
 
@@ -31,7 +30,6 @@ Caso dê tudo certo, a resposta será assim:
   "user": {
     "email": "renatosuguiy@gmail.com",
     "name": "Renato",
-    "age": 31,
     "id": 2
   }
 }
@@ -58,50 +56,33 @@ Caso dê tudo certo, a resposta será assim:
   "user": {
     "email": "renatosuguiy@gmail.com",
     "name": "Renato",
-    "age": 31,
     "id": 2
   }
 }
 ```
 
-<h3 align='center'> Lista de  amigos </h3>
+<h3 align='center'> Lista de Produtos </h3>
 
-`GET /friends - FORMATO DA RESPOSTA - STATUS 200`
+`GET /products - FORMATO DA RESPOSTA - STATUS 200`
 
 ```JSON
 [
+ [
   {
-    "name": "felipe",
-    "age": 31,
-    "userId": 2,
-    "id": 1
+    "id": 1,
+    "productName": "Hamburguer",
+    "type": "Sanduíche",
+    "price": 14,
+    "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png"
   },
   {
-    "name": "Cachorro",
-    "age": 31,
-    "userId": 2,
-    "id": 2
+    "id": 2,
+    "productName": "X-Burguer",
+    "type": "Sanduíche",
+    "price": 16,
+    "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png"
   }
 ]
-```
-Para verificar qual usuário possui como amigo, usar o endpoint:
-`GET /friends/{id}?_expand=user`
-
-Caso dê tudo certo, a resposta será assim:
-```JSON
-{
-  "name": "Gato",
-  "age": 10,
-  "userId": 2,
-  "id": 1,
-  "user": {
-    "email": "renatosuguiy@gmail.com",
-    "password": "$2a$10$O4Qkk4NupjmUfiZ1nXbFReygrLUq4zyskvCruHDFpYTzN0IdLcc76",
-    "name": "Renato",
-    "age": 31,
-    "id": 2
-  }
-}
 ```
 
 ## Rotas que precisam de autenticação
@@ -112,91 +93,170 @@ Rotas que necessitam de autorização deve ser informado no cabeçalho da requis
 
 Após o usuário estar logado, ele deve conseguir acessar os endpoints abaixo:
 
-<h3 align='center'> Adicionar grupos </h3>
+<h3 align='center'> Adicionar pedido </h3>
 
-`POST /groups - FORMATO DA REQUISIÇÃO`
+`POST /order - FORMATO DA REQUISIÇÃO`
 
 ```JSON
-{
-	"type": "Animais",
-	"name": "Grupo dos Cachorros",
-	"description": "Grupo criado para teste"
-}
+ {
+    "order": [
+      {
+        "productId": 1,
+        "productName": "Hamburguer",
+        "type": "Sanduíche",
+        "price": 14,
+        "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+        "qtd": 1
+      },
+      {
+        "productId": 2,
+        "productName": "X-Burguer",
+        "type": "Sanduíche",
+        "price": 16,
+        "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+        "qtd": 1
+      },
+    ],
+    "userId": 2,
+  }
 ```
 
 Caso dê tudo certo, a resposta será assim:
 
 ```json
-{
-  "type": "Animais",
-  "name": "Grupo dos Cachorros",
-  "description": "Grupo criado para teste",
-  "id": 5
-}
+ {
+    "order": [
+      {
+        "productId": 1,
+        "productName": "Hamburguer",
+        "type": "Sanduíche",
+        "price": 14,
+        "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+        "qtd": 1
+      },
+      {
+        "productId": 2,
+        "productName": "X-Burguer",
+        "type": "Sanduíche",
+        "price": 16,
+        "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+        "qtd": 1
+      },
+    ],
+    "userId": 2,
+    id: 2
+  }
 ```
 
-<h3 align='center'> Adicionar amigo </h3>
+<h3 align='center'> Ver pedidos </h3>
 
-O userId é o id do usuário ao qual se deseja adicionar o amigo. 
-
-`POST /friends - FORMATO DA REQUISIÇÃO`
+`GET /order - FORMATO DA REQUISIÇÃO`
 
 ```json
-{
-  "name": "Gato",
-  "age": 10,
-  "userId": 2
-}
+[{
+    "order": [
+      {
+        "productId": 1,
+        "productName": "Hamburguer",
+        "type": "Sanduíche",
+        "price": 14,
+        "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+        "qtd": 1
+      },
+      {
+        "productId": 2,
+        "productName": "X-Burguer",
+        "type": "Sanduíche",
+        "price": 16,
+        "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+        "qtd": 1
+      }
+    ],
+    "userId": 2,
+    "id": 2
+  },
+  {
+    "order": [
+      {
+        "productId": 1,
+        "productName": "Hamburguer",
+        "type": "Sanduíche",
+        "price": 14,
+        "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+        "qtd": 1
+      },
+      {
+        "productId": 2,
+        "productName": "X-Burguer",
+        "type": "Sanduíche",
+        "price": 16,
+        "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+        "qtd": 1
+      }
+    ],
+    "userId": 2,
+    "id": 3
+  }
+]
 ```
+Para ver os pedidos de um usuário, user o endpoint:
+
+`GET /users/{userId}?_embed=order - FORMATO DA RESPOSTA - STATUS 200`
+
 Caso dê tudo certo, a resposta será assim:
 
-`POST /friends - FORMATO DA RESPOSTA - STATUS 201`
-
 ```json
-{
-  "name": "Gato",
-  "age": 10,
-  "userId": 2,
-  "id": 4
-}
-```
-Para ver os amigos de um usuário, user o endpoint:
-
-`GET /users/{userId}?_embed=friends - FORMATO DA RESPOSTA - STATUS 200`
-
-Caso dê tudo certo, a resposta será assim:
-
-```json
-
 {
   "email": "renatosuguiy@gmail.com",
-  "password": "$2a$10$O4Qkk4NupjmUfiZ1nXbFReygrLUq4zyskvCruHDFpYTzN0IdLcc76",
-  "name": "Renato",
-  "age": 31,
+  "password": "$2a$10$xOt1taGsSYf9jydVtu0ofe5ivSfm0ARgV85HtluYgIb4xuTklj/Jq",
+  "name": "Renato Tateiwa Suguiy",
+  "confirmPassword": "123456",
   "id": 2,
-  "friends": [
+  "order": [
     {
-      "name": "Gato",
-      "age": 10,
+      "order": [
+        {
+          "productId": 1,
+          "productName": "Hamburguer",
+          "type": "Sanduíche",
+          "price": 14,
+          "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+          "qtd": 1
+        },
+        {
+          "productId": 2,
+          "productName": "X-Burguer",
+          "type": "Sanduíche",
+          "price": 16,
+          "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+          "qtd": 1
+        }
+      ],
       "userId": 2,
-      "id": 1
+      "id": 2
+    },
+    {
+      "order": [
+        {
+          "productId": 1,
+          "productName": "Hamburguer",
+          "type": "Sanduíche",
+          "price": 14,
+          "image": "https://bobs.com.br/media/menu/sanduiches/big-bob/Big_Bobs.png.0x180_q85_upscale.png",
+          "qtd": 1
+        },
+        {
+          "productId": 2,
+          "productName": "X-Burguer",
+          "type": "Sanduíche",
+          "price": 16,
+          "image": "https://bobs.com.br/media/menu/sanduiches/double-cheesburguer/Double_cheese_8z6EedM.png",
+          "qtd": 1
+        }
+      ],
+      "userId": 2,
+      "id": 3
     }
   ]
 }
-```
-
-<h3 align='center'> Listar Grupos </h3>
-
-`GET /groups - FORMATO DA RESPOSTA - STATUS 200`
-
-```JSON
-
-[
-  {
-    "type": "Animais",
-    "name": "Grupo dos Gatos",
-    "description": "Grupo criado para teste",
-    "id": 4
-  }
-]
 ```
